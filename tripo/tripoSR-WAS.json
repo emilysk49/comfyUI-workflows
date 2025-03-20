@@ -1,0 +1,381 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 28,
+  "nodes": [
+    {
+      "id": 16,
+      "type": "TripoSRViewer",
+      "pos": [
+        2118.031494140625,
+        827.1598510742188
+      ],
+      "size": [
+        600,
+        500
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "TripoSRViewer"
+      },
+      "widgets_values": [
+        null
+      ]
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        866.2028198242188,
+        837.438232421875
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            23
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "image-removebg-preview.png",
+        "image"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "PreviewImage",
+      "pos": [
+        1254.6614990234375,
+        924.2781982421875
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 24
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 22,
+      "type": "MaskPreview+",
+      "pos": [
+        1700.222900390625,
+        722.2164916992188
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "TripoSRSampler",
+      "pos": [
+        1695.5181884765625,
+        1129.130615234375
+      ],
+      "size": [
+        315,
+        122
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "TRIPOSR_MODEL",
+          "link": 6
+        },
+        {
+          "name": "reference_image",
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "name": "reference_mask",
+          "type": "MASK",
+          "shape": 7,
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MESH",
+          "type": "MESH",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripoSRSampler"
+      },
+      "widgets_values": [
+        256,
+        25
+      ]
+    },
+    {
+      "id": 21,
+      "type": "ImageToMask",
+      "pos": [
+        1694.7215576171875,
+        602.3165283203125
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            26,
+            27
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask"
+      },
+      "widgets_values": [
+        "alpha"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "Image Rembg (Remove Background)",
+      "pos": [
+        1250.8720703125,
+        606.7158203125
+      ],
+      "size": [
+        390.5999755859375,
+        250
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            24,
+            25,
+            28
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Rembg (Remove Background)"
+      },
+      "widgets_values": [
+        true,
+        "isnet-general-use",
+        false,
+        false,
+        false,
+        240,
+        10,
+        10,
+        "none"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "TripoSRModelLoader",
+      "pos": [
+        1237.720947265625,
+        1241.957275390625
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "TRIPOSR_MODEL",
+          "type": "TRIPOSR_MODEL",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripoSRModelLoader"
+      },
+      "widgets_values": [
+        "model.ckpt",
+        8192
+      ]
+    }
+  ],
+  "links": [
+    [
+      6,
+      14,
+      0,
+      15,
+      0,
+      "TRIPOSR_MODEL"
+    ],
+    [
+      9,
+      15,
+      0,
+      16,
+      0,
+      "MESH"
+    ],
+    [
+      23,
+      8,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      20,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      21,
+      0,
+      22,
+      0,
+      "MASK"
+    ],
+    [
+      27,
+      21,
+      0,
+      15,
+      2,
+      "MASK"
+    ],
+    [
+      28,
+      20,
+      0,
+      15,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7513148009015778,
+      "offset": [
+        -583.3183027161537,
+        -433.0557116629233
+      ]
+    },
+    "node_versions": {
+      "ComfyUI-Flowty-TripoSR": "a0c94ac60a7cc062604f61aeeea6d0d493521de3",
+      "comfy-core": "0.3.26",
+      "comfyui_essentials": "33ff89fd354d8ec3ab6affb605a79a931b445d99",
+      "was-node-suite-comfyui": "9ae952b1b435d2bd846bfe6516919b5a8b9201aa"
+    }
+  },
+  "version": 0.4
+}

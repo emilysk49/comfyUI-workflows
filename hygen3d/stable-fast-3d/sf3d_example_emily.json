@@ -1,0 +1,369 @@
+{
+  "last_node_id": 12,
+  "last_link_id": 16,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "StableFast3DSampler",
+      "pos": [
+        756.9950561523438,
+        9.735666275024414
+      ],
+      "size": [
+        315,
+        190
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "SF3D_MODEL",
+          "link": 8
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16,
+          "slot_index": 1
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "shape": 7,
+          "link": 11
+        },
+        {
+          "name": "remesh",
+          "type": "none",
+          "link": null,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "shape": 3,
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "aux_id": "Stability-AI/stable-fast-3d",
+        "ver": "ff21fc491b4dc5314bf6734c7c0dabd86b5f5bb2",
+        "Node name for S&R": "StableFast3DSampler"
+      },
+      "widgets_values": [
+        0.85,
+        1024,
+        "triangle",
+        -1
+      ]
+    },
+    {
+      "id": 6,
+      "type": "InvertMask",
+      "pos": [
+        485,
+        132
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "shape": 3,
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "InvertMask"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "StableFast3DLoader",
+      "pos": [
+        478,
+        -27
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sf3d_model",
+          "type": "SF3D_MODEL",
+          "shape": 3,
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "aux_id": "Stability-AI/stable-fast-3d",
+        "ver": "ff21fc491b4dc5314bf6734c7c0dabd86b5f5bb2",
+        "Node name for S&R": "StableFast3DLoader"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "ImageToMask",
+      "pos": [
+        467.4228820800781,
+        259.18218994140625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "ImageToMask"
+      },
+      "widgets_values": [
+        "red"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ImageScale",
+      "pos": [
+        462.87738037109375,
+        382.8182373046875
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14,
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1024,
+        1024,
+        "disabled"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "StableFast3DSave",
+      "pos": [
+        1191.2109375,
+        11.663158416748047
+      ],
+      "size": [
+        600,
+        512
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "aux_id": "Stability-AI/stable-fast-3d",
+        "ver": "ff21fc491b4dc5314bf6734c7c0dabd86b5f5bb2",
+        "Node name for S&R": "StableFast3DSave"
+      },
+      "widgets_values": [
+        "SF3D",
+        null
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        105,
+        26
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "shape": 3,
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "shape": 3,
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00039_.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      8,
+      7,
+      0,
+      8,
+      0,
+      "SF3D_MODEL"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "MESH"
+    ],
+    [
+      11,
+      6,
+      0,
+      8,
+      2,
+      "MASK"
+    ],
+    [
+      13,
+      1,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      11,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      12,
+      0,
+      6,
+      0,
+      "MASK"
+    ],
+    [
+      16,
+      11,
+      0,
+      8,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": [
+        -533.4269862844085,
+        97.70971496685571
+      ]
+    }
+  },
+  "version": 0.4
+}
